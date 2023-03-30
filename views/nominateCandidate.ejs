@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="css/nominateCandidate.css">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="shortcut icon" type="x-icon" href="img/logo.png">
+    <!-- font style -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- fontawsome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!--<title>Responsive Regisration Form </title>--> 
+</head>
+<body>
+    <header class="header_section">
+        <a class="navbar-brand">
+            <span>
+            .e-Vote 
+            </span>
+        </a>
+      </header>
+
+     
+      <!-- end header section -->
+    <div class="head-container">
+        <label class="reg">Nomination Form</label>
+
+        <form action="/candidateReg" method="post" enctype="multipart/form-data" id="candidateReg">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">(To be filled by member in good standing only)</span>
+
+                    <div class="fields">
+
+                        <div class="input-field">
+                            <label>Candidate Name</label>
+                            <input type="text" placeholder="Enter name of candidate"  id="name" name="name">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Candidate's Date of Birth</label>
+                            <input type="date" placeholder="Enter birth date"  id="dob" name="dob">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+
+                        <div class="input-field">
+                          <label>Candidate's Marrital Status</label>
+                          <select  placeholder="Select"  id="marritalStatus" name="marritalStatus">
+                            <option value="" disabled selected>Select Marrital Status</option>
+                            <option value="Married">Married</option>
+                            <option value="Single">Single</option>
+                          </select>
+                          <i class="fa-solid fa-circle-check"></i>
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                          <small class="small">Error message</small>
+                      </div>
+
+                        <div class="input-field">
+                            <label>Candidate Gender</label>
+                            <select  placeholder="Select Gender"  id="gender" name="gender">
+                              <option value="" disabled selected>Select Gender</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                              <option value="Transgender">Transgender</option>
+                            </select>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Candidate's e-Mail</label>
+                            <input type="text" placeholder="Enter Candidate's e-mail"  id="email" name="email">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Candidate's photo (JPG/JPEG/PNG/PDF)</label>
+                            <!-- <input type="text" placeholder="Choose your photo" required> -->
+                            <input type="file" id="file" accept="image/png, image/jpg, image/jpeg" id="picture" name="picture">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Qualification</label>             
+                            <input type="text" placeholder="Enter Qualification"  id="quali" name="quali">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Position Applied For</label>
+                            <input type="text" placeholder="Enter Position to be applied for"  id="position" name="position">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="sumbit" type="button" onclick="submitForm1()">
+                    <span class="btnText">Submit</span>
+                    <i class="uil uil-navigator"></i>
+                </button>
+            </div>
+
+
+        </form>
+    </div>
+    <% if (msg == 'You have been already nominated for the Elections') { %>
+    <div id="myModal" class="modal1" >
+      <div class="modal-content">
+        <span class="close1" id="close">&times;</span>
+        <p class="msg"><%= msg %><br><br>
+          <a href="/partyDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+      </div>
+    </div>
+      <% } else if (msg == "Candidate Nominated Successfully!") { %>
+        <div id="myModal" class="modal1" >
+          <div class="modal-content">
+            <span class="close1" id="close">&times;</span>
+            <p class="msg"><%= msg %><br><br>
+              <a href="/partyDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+          </div>
+        </div>
+    <% } else {%>
+      <div id="myModal" class="modal" >
+        <div class="modal-content">
+          <span class="close" id="close">&times;</span>
+          <p class="msg">Record inserted successfully!<br><br>
+          <a href="/partyDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+         <button id="ok" name="ok" onclick="location.href='partyDashboard'">OK</button> 
+        </div>
+      </div>
+      <% } %>
+
+      <div class="footer_bg">
+        <!-- info section -->
+        <section class="info_section layout_padding2-bottom">
+          <!-- <div class="container">
+            <h3 class="">
+              .e-Vote
+            </h3>
+          </div>
+          <div class="container info_content"> -->
+    
+            <!-- <div>
+              <div class="row">
+                <div class="col-md-6 col-lg-4">
+                  <div class="d-flex">
+                    <h5>
+                      Useful Link
+                    </h5>
+                  </div>
+                  <div class="d-flex ">
+                    <ul>
+                      <li>
+                        <a href="https://nsdl.co.in/value/e-Voting.php">
+                          e-Voting-NSDL
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://eci.gov.in/">
+                          Election Comission
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.evoting.nsdl.com/eVotingWeb/faqs.do">
+                          NSDL e-Voting system
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://right2vote.in/">
+                          Services
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.evotingindia.com/">
+                          CSDL e-Voting
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="d-flex">
+                    <h5>
+                      The Services
+                    </h5>
+                  </div>
+                  <div class="d-flex ">
+                    <ul>
+                      <li>
+                        <a href="https://nsdl.co.in/value/e-Voting.php">
+                          e-Voting
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://eci.gov.in/">
+                          Election system
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.evoting.nsdl.com/eVotingWeb/faqs.do">
+                          e-Voting system
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://right2vote.in/">
+                          Features
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.evotingindia.com/">
+                          e-voting india
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="d-flex">
+                    <h5>
+                      Contact Us
+                    </h5>
+                  </div>
+                  <div class="d-flex ">
+                    <ul>
+                      <li>
+                        <a href="#trouble">
+                          Contact Us
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                </div>
+             </div>  -->
+            <!-- </div> -->
+            
+    
+        </section>
+    
+        <!-- end info_section -->
+    
+        <!-- footer section -->
+        <section class="container-fluid footer_section" id="bottomline">
+          <p>
+             <!-- 2023 .e-Vote : Your Voice Matters -->
+          </p>
+        </section>
+   
+    
+</body>
+<script src="js/nominateCandidate.js"></script>
+</html>

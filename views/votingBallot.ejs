@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="css/votingBallot.css">
+    <link rel="shortcut icon" type="x-icon" href="img/logo.png">
+    <!-- <link rel="stylesheet" type="text/css" href="/bootstrap.css"/> -->
+
+    <!-- font style -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- fontawsome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <title>.e-Vote : Your Voice Matters</title> 
+</head>
+<body>
+    <header class="header_section">
+        <a class="navbar-brand" href="ballot">
+            <span>
+            .e-Vote 
+            </span>
+        </a>
+      </header>
+      <!-- end header section -->
+
+      <!-- display records here -->
+      <div class="container">
+        <form action="/nominations" method="POST">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <!-- <th>Sr. no.</th> -->
+                        <th width="33%">Party Symbol</th>
+                        <th width="33%">Candidate Name</th>
+                        <th width="33%">Party Name</th>
+                    </tr>
+                    <!-- <tr style="white-space: fit;">
+                        <td><img src="bjp.png" alt="bjp" height="30px" width="30px"></td>
+                        <td>Priyanka Sundalam</td>
+                        <td>BJP</td>
+                    </tr> -->
+                </thead>
+                <tbody>
+                        <!-- <tr>
+                            <td width="33%"><img src="img/bjp.png" alt="bjp" height="30px" width="30px"></td>
+                            <td width="33%">Priyanka Sundalam</td>
+                            <td width="33%">BJP</td>
+                        </tr> -->
+                        <% for(var i = 0; i < users.length; i++) { %>
+                        <%  var dataUrl="data:image/jpeg;base64,"+btoa(users[i].party_logo); %>
+
+                            <tr>
+                                <!-- <td><%= i + 1 %></td> -->
+                                <td width="33%"><img src=<%= dataUrl %> width="60px" height="60px" alt="party_logo"></td>
+                                <td width="33%"><%= users[i].candi_name %></td>
+                                <td width="33%"><%= users[i].party_name %></td>
+                                <!-- <td><%= users[i].status %></td> -->
+                                <!-- <td>
+                                    <a href="/update-user?id=<%= users[i]._id%>" class="btn border-shadow update">
+                                        <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                    </a>
+                                    <a class="btn border-shadow delete" data-id=<%= users[i]._id%> >
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
+                                </td> -->
+                            </tr>
+                            <% } %>
+                            <% if(users==null) { %> 
+                                <p>No candidates nominated...!!</p>
+
+                            <% } %>
+                </tbody>
+            </table>
+        </form>
+      </div>
+
+      
+                                <!-- <td><img src=  width="30px" height="30px" alt="party_logo"></td> -->
+      
+
+    <!-- <script src="thirdStep.js"></script> -->
+</body>
+</html>

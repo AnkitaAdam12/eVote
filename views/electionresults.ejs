@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>.e-Vote : Your Voice Matters</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="shortcut icon" type="x-icon" href="img/logo.png">
+    <!-- Google Font -->
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/electionresults.css" />
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+  </head>
+  <body>
+    <!-- header section -->
+    <header class="header_section">
+        <a class="navbar-brand" href="electionresults">
+            <span>
+            .e-Vote 
+            </span>
+        </a>
+      </header>
+      <!-- <div>
+        <canvas id="myChart"></canvas>
+      </div> -->
+      <div class="row">
+        <h2 class="section-heading">Election Results</h2>
+      </div>
+      <!-- end header section -->
+    <div class="head-container">
+        <div id="shadow">
+        <form action="/publishresults" method="post">
+            <div class="form first">
+                <div class="details personal">
+                  <canvas id="myChart" class="can" width="450" height="430"></canvas>
+                        <div class="second">
+                          <%  var dataUrl="data:image/jpeg;base64,"+btoa(winner.party_logo); %>
+                          <%  var dataUrl1="data:image/jpeg;base64,"+btoa(winner.photo); %>
+                            <table class="table">
+                                <tbody>
+                                <tr> 
+                                    <td width="200px" class="lbl_center"><%= winner.candi_name %></td>
+                                    <td class="txt_center" width="200px"><img src="<%= dataUrl1 %>" alt="bjp" height="150px" width="150px"></td>
+                                </tr>
+                                <tr> 
+                                    <td width="200px" class="lbl_center"><%= winner.party_name %></td>
+                                    <td class="txt_center" width="200px"><img src="<%= dataUrl %>" alt="bjp" height="150px" width="150px"></td>
+                                </tr>
+                                <tr> 
+                                    <td width="200px" class="lbl_center">No. of Votes</td>
+                                    <td class="txt_center" width="200px"><%= winner.votes %></td>
+                                </tr>
+                                <!-- <tr class="btn">
+                                  <td width="200px">/td>
+                                </tr> -->
+                                </tbody>
+                            </table>
+                            <button type="submit" value="Publish" class="btn1">Publish Results</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+    </div>
+    <% if (msg == "Election Results Published!") { %>
+      <div id="myModal" class="modal1" >
+        <div class="modal-content">
+          <a href="/adminDashboard"><span class="close1" id="close">&times;</span></a>
+          <p class="msg"><%= msg %><br><br>
+            <a href="/adminDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+        </div>
+      </div>
+      <% } else {%>
+        <div id="myModal" class="modal" >
+           <div class="modal-content">
+             <span class="close" id="close">&times;</span>
+             <p class="msg">Record inserted successfully!<br><br>
+             <a href="/admiinDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+            <button id="ok" name="ok" onclick="location.href='adminDashboard'">OK</button> 
+           </div>
+         </div>
+         <% } %>
+  </body>
+  
+  <script>
+    const chartData = JSON.parse('<%- JSON.stringify(chart) %>');
+    // const chartOptions = {
+    //   responsive: true,
+    //   maintainAspectRatio: false
+    // };
+    const chartOptions = {
+      responsive: false,
+      maintainAspectRatio: false,
+      legend: {
+        position: 'bottom'
+      },
+      cutoutPercentage: 0,
+      // aspectRatio:1
+    };
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'pie',
+      data: chartData,
+      options: chartOptions
+    });
+    // const form = document.querySelector('form');
+const closeModal = document.getElementById("close");
+
+// Hide the modal if the user clicks outside of it
+window.addEventListener('click',function(event) {
+  const modal = document.getElementById("myModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+// Hide the modal
+closeModal.addEventListener('click', function () {
+  const modal = document.getElementById("myModal");
+  modal.style.display = "none";
+});
+
+
+
+// window.addEventListener('pageshow', function(event) {
+//   // Check if the current page is the dashboard page and was loaded from the cache
+//   if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD && window.location.pathname === '/publishresults') {
+//     // Redirect the user to the homepage
+//     window.location.href = '/';
+//   }
+// });
+    </script>
+</html>

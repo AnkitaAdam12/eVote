@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="css/party_reg_request.css">
+    <link rel="shortcut icon" type="x-icon" href="img/logo.png">
+    <!-- <link rel="stylesheet" type="text/css" href="/bootstrap.css"/> -->
+
+    <!-- font style -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- fontawsome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <title>.e-Vote : Your Voice Matters</title> 
+</head>
+<body>
+    <header class="header_section">
+        <a class="navbar-brand" href="party_requests">
+            <span>
+            .e-Vote 
+            </span>
+        </a>
+      </header>
+      <!-- end header section -->
+
+      <!-- display records here -->
+      <div class="container">
+        <!-- <form action="/nominations" method="POST"> -->
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <!-- <th>Sr. no.</th> -->
+                        <th width="16%">Candidate Photo</th>
+                        <th width="16%">Party Name</th>
+                        <th width="16%">Candidate Name</th>
+                        <th width="16%">Candidate Age</th>
+                        <th width="16%">Position</th>
+                    </tr>
+                    <!-- <tr style="white-space: fit;">
+                        <td><img src="bjp.png" alt="bjp" height="30px" width="30px"></td>
+                        <td>Priyanka Sundalam</td>
+                        <td>BJP</td>
+                    </tr> -->
+                </thead>
+                <tbody>
+                        <!-- <tr>
+                            <td width="33%"><img src="img/bjp.png" alt="bjp" height="30px" width="30px"></td>
+                            <td width="33%">Priyanka Sundalam</td>
+                            <td width="33%">BJP</td>
+                        </tr> -->
+                        <% for(var i = 0; i < users.length; i++) { %>
+                        <%  var dataUrl="data:image/jpeg;base64,"+btoa(users[i].photo); %>
+                        <form action="/candidate_reg_request" method="post">
+                            <tr>
+                                <!-- <td><%= i + 1 %></td> -->
+                                <td width="16%"><img src=<%= dataUrl %> width="100px" height="100px" alt="photo"></td>
+                                <td width="16%"><input type="text" name="pn" class="pn" value="<%= users[i].party_name %>" readonly style="border:none; background-color: transparent; text-align: center; outline: none; font-size: 17px;"></td>
+                                <!-- <td width="16%" name="pn"><%= users[i].party_name %></td> -->
+                                <td width="16%"><%= users[i].candidate_name %></td>
+                                <td width="16%"><%= users[i].candidate_age %></td>
+                                <td width="16%"><%= users[i].position %></td>                          
+                                <!-- <td width="16%"><button type="submit" name="action" value="accept">Accept</button><button type="submit" name="action" value="reject">Reject</button></td> -->
+                                <!-- <td><%= users[i].status %></td> -->
+                                <!-- <td>
+                                    <a href="/update-user?id=<%= users[i]._id%>" class="btn border-shadow update">
+                                        <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                    </a>
+                                    <a class="btn border-shadow delete" data-id=<%= users[i]._id%> >
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
+                                </td> -->
+                            </tr>
+                        </form>
+                            <% } %>
+                            <% if(users==null) { %> 
+                                <p>No candidates nominated...!!</p>
+
+                            <% } %>
+                </tbody>
+            </table>
+        <!-- </form> -->
+      </div>
+
+      
+                                <!-- <td><img src=  width="30px" height="30px" alt="party_logo"></td> -->
+      
+
+    <script src="js/party_reg_request.js"></script>
+</body>
+
+</html>

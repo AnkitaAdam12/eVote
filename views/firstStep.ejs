@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="css/firstStep.css">
+    <link rel="shortcut icon" type="x-icon" href="img/logo.png">
+    <!-- <link rel="stylesheet" type="text/css" href="/bootstrap.css"/> -->
+
+    <!-- font style -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- fontawsome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <title>.e-Vote : Your Voice Matters</title> 
+</head>
+<body>
+    <header class="header_section">
+        <a class="navbar-brand" href="firstStep">
+            <span>
+            .e-Vote 
+            </span>
+        </a>
+      </header>
+      <!-- end header section -->
+    <div class="head-container">
+        <div id="shadow">
+        <label class="reg">Voting Area</label>
+        <form action="/firstAuth" method="post" id="fs">
+            <div class="form first">
+                <div class="details personal">
+                    <!-- <span class="title">Personal Details</span> -->
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Voter ID</label>
+                            <input type="text" placeholder="Enter your Voter ID"  id="voterId" name="voterId">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Aadhar Number</label>
+                            <input type="text" placeholder="Enter Aadhar number"  id="aadhar" name="aadhar">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="sumbit" type="button" onclick="submitForm()">
+                    <span class="btnText">Next</span>
+                    <i class="uil uil-navigator"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <script src="js/firstStep.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="css/secondStep.css">
+    <link rel="shortcut icon" type="x-icon" href="img/logo.png">
+    <!-- <link rel="stylesheet" type="text/css" href="/bootstrap.css"/> -->
+
+    <!-- font style -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- fontawsome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <title>.e-Vote : Your Voice Matters</title> 
+</head>
+<body>
+    <header class="header_section">
+        <a class="navbar-brand" href="secondStep">
+            <span>
+            .e-Vote 
+            </span>
+        </a>
+      </header>
+      <!-- end header section -->
+    <div class="head-container">
+        <div id="shadow">
+        <label class="reg">Voting Area</label>
+        <form action="/secondAuth" method="post" id="ss">
+            <div class="form first">
+                <div class="details personal">
+                    <!-- <span class="title">Personal Details</span> -->
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Enter OTP</label>
+                            <input type="text" placeholder="Enter OTP sent to your e-mail"  id="otp" name="otp">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="sumbit" type="button" onclick="submitForm()">
+                    <span class="btnText">Next</span>
+                    <i class="uil uil-navigator"></i>
+                </button>
+                <p>note : OTP has been sent to your registered e-mail address. If not present in the InBox, please check in spam folder!</p>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <script src="js/secondStep.js"></script>
+</body>
+</html>

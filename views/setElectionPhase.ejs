@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="css/setElectionPhase.css">
+
+    <link rel="shortcut icon" type="x-icon" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css"/>
+
+    <!-- font style -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- fontawsome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!--<title>Responsive Regisration Form </title>--> 
+
+    <title>.e-Vote : Your Voice Matters</title>
+</head>
+<body onload="setNextPhase()">
+    <header class="header_section">
+        <a class="navbar-brand">
+            <span>
+            .e-Vote 
+            </span>
+        </a>
+      </header>
+	<!-- <h1>Set Election Phase</h1> -->
+
+    <div class="row">
+        <h2 class="section-heading">Set Election Phase</h2>
+    </div>
+
+	<form action="/Electionphase" method="post" id="ep">
+        <div class="content">
+            <fieldset>
+                <legend>Current Phase: <span id="current-phase"><%= current %></span></legend>
+                <label><input type="radio" name="electionphase" value="Start Election">Start Election</label>
+                <label><input type="radio" name="electionphase" value="Nominate Candidates">Nominate Candidates</label>
+                <label><input type="radio" name="electionphase" value="Stop Nominations">Stop Nominations</label>
+                <label><input type="radio" name="electionphase" value="Start Voting">Start Voting</label>
+                <label><input type="radio" name="electionphase" value="Stop Voting">Stop Voting</label>
+                <label><input type="radio" name="electionphase" value="Display Results">Display Results</label>
+                <label><input type="radio" name="electionphase" value="Stop Election">Stop Election</label>
+            </fieldset>
+            <!-- <input type="submit" value="Save Phase" disabled> -->
+            <button class="sumbit" type="button" id="savePhase" disabled>
+                <span class="btnText">Save Phase</span>
+                <i class="uil uil-navigator"></i>
+            </button>
+        </div>
+		
+	</form>
+    <input type="hidden" id="nxt" value="<%= next %>">
+
+
+    <!-- popup -->
+<% if (msg == 'Election Phase Updated Successfully!') { %>
+    <div id="myModal" class="modal1" >
+      <div class="modal-content">
+        <span class="close1" id="close">&times;</span>
+        <p class="msg"><%= msg %><br><br>
+          <a href="/adminDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+      </div>
+    </div>
+    
+<% } else if (msg == 'Finish the Candidate Nominations!') { %>
+    <div id="myModal" class="modal1" >
+      <div class="modal-content">
+        <span class="close1" id="close">&times;</span>
+        <p class="msg"><%= msg %><br><br>
+          <a href="/adminDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+      </div>
+    </div>
+    <% } else {%>
+      <div id="myModal" class="modal" >
+        <div class="modal-content">
+          <span class="close" id="close">&times;</span>
+          <p class="msg">Record inserted successfully!<br><br>
+          <a href="/adminDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+         <button id="ok" name="ok" onclick="location.href='Partylogin'">OK</button> 
+        </div>
+      </div>
+      <% } %>
+</body>
+<script src="js/setElectionPhase.js"></script>
+</html>

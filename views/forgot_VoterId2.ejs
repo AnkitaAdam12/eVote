@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.e-Vote : Your Voice Matters</title>
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="css/VoterReg1.css">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="shortcut icon" type="x-icon" href="img/logo.png">
+    <!-- font style -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- fontawsome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!--<title>Responsive Regisration Form </title>--> 
+</head>
+<body>
+    <header class="header_section">
+        <a class="navbar-brand" href="forgot_VoterId2">
+            <span>
+            .e-Vote 
+            </span>
+        </a>
+      </header>
+      <!-- end header section -->
+    <div class="head-container">
+        <label class="reg1">Recover Voter ID</label>
+
+        <form action="/voterId2"  method="post" id="vdotp">
+            <div class="form first">
+                <div class="details personal">
+                    <!-- <span class="title">Personal Details</span> -->
+
+                    <div class="fields">
+                        <!-- <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name"  id="name" name="name">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" placeholder="Enter birth date"  id="dob" name="dob">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div> -->
+
+                        <!-- <div class="input-field">
+                            <label>Mobile Number</label>
+                            <input type="number" placeholder="Enter mobile number"  id="phno" name="phno">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div> -->
+<!-- 
+                      <div class="input-field">
+                          <label>Aadhar number</label>
+                          <input type="number" placeholder="Enter your Aadhar number"  id="aadhar" name="aadhar">
+                          <i class="fa-solid fa-circle-check"></i>
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                          <small class="small">Error message</small>
+                      </div>
+                      <div class="input-field">
+                        <label>e-Mail</label>
+                        <input type="text" placeholder="Enter your e-mail"  id="email" name="email">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <small class="small">Error message</small>
+                        <button  type="submit" onclick="send()">Send OTP</button>
+                    </div> -->
+                    
+        
+                    <% if (errorMsg != null) { %>
+                      <div class="input-field error">
+                        <label>OTP</label>
+                        <input type="number" placeholder="Enter OTP" maxlength="4"  id="otp" name="otp">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                          <small class="small"><%= errorMsg %></small>
+                    <% } else {%>
+                      <div class="input-field">
+                        <label>OTP</label>
+                        <input type="number" placeholder="Enter OTP" maxlength="4"  id="otp" name="otp">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <small class="small">error message</small>
+                      <% } %>
+                    </div>
+
+
+                        <!-- <div class="input-field">
+                            <label>Photo (JPG/JPEG/PNG/PDF)</label>
+                            <input type="text" placeholder="Choose your photo" required> 
+                            <input type="file" id="file" accept="image/png, image/jpg, image/jpeg" id="picture" name="picture">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Password</label>
+                            <input type="password" placeholder="Create password"  id="pwd1" name="pwd1">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Confirm Password</label>
+                            <input type="password" placeholder="Confirm password"  id="pwd2" name="pwd2">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div> -->
+
+                    </div>
+                </div>
+           
+<!-- <form action="" > -->
+                <button class="sumbit" type="submit" onclick="submitOtp()">
+                  <a  class="sub">  <span class="btnText">Next</span></a>
+                    <i class="uil uil-navigator"></i>
+                </button>
+            </div>
+
+          </form>
+    </div>
+  <!-- </form> -->
+  <% if (msg == 'Your Voter Id is recovered') { %>
+    <div id="myModal" class="modal1" >
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close1" id="close">&times;</span>
+        <p class="msg"><%= msg %><br><br>
+          <a href="/VoterLogin"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+      </div>
+    </div>
+    <% } else if (msg == 'No account found')  {%>
+        <div id="myModal" class="modal1" >
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close1" id="close">&times;</span>
+            <p class="msg"><%= msg %><br><br>
+            <a href="/VoterReg2"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+            <!-- <button id="ok" name="ok" onclick="location.href='Partylogin'">OK</button> -->
+          </div>
+        </div>
+    <% } else {%>
+      <div id="myModal" class="modal" >
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close1" id="close">&times;</span>
+          <p class="msg"><br><br>
+          <a href="/VoterLogin"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+          <!-- <button id="ok" name="ok" onclick="location.href='Partylogin'">OK</button> -->
+        </div>
+      </div>
+      <% } %>
+
+    <div class="footer_bg">
+        <!-- info section -->
+        <section class="info_section layout_padding2-bottom">
+          <div class="container">
+            <h3 class="">
+              .e-Vote
+            </h3>
+          </div>
+          <div class="container info_content">
+    
+            <div>
+              <div class="row">
+                <div class="col-md-6 col-lg-4">
+                  <div class="d-flex">
+                    <h5>
+                      Useful Link
+                    </h5>
+                  </div>
+                  <div class="d-flex ">
+                    <ul>
+                      <li>
+                        <a href="https://nsdl.co.in/value/e-Voting.php">
+                          e-Voting-NSDL
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://eci.gov.in/">
+                          Election Comission
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.evoting.nsdl.com/eVotingWeb/faqs.do">
+                          NSDL e-Voting system
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://right2vote.in/">
+                          Services
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.evotingindia.com/">
+                          CSDL e-Voting
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="d-flex">
+                    <h5>
+                      The Services
+                    </h5>
+                  </div>
+                  <div class="d-flex ">
+                    <ul>
+                      <li>
+                        <a href="https://nsdl.co.in/value/e-Voting.php">
+                          e-Voting
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://eci.gov.in/">
+                          Election system
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.evoting.nsdl.com/eVotingWeb/faqs.do">
+                          e-Voting system
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://right2vote.in/">
+                          Features
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.evotingindia.com/">
+                          e-voting india
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="d-flex">
+                    <h5>
+                      Contact Us
+                    </h5>
+                  </div>
+                  <div class="d-flex ">
+                    <ul>
+                      <li>
+                        <a href="#trouble">
+                          Contact Us
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                </div>
+             </div> 
+            </div>
+            
+    
+        </section>
+    
+        <!-- end info_section -->
+    
+        <!-- footer section -->
+        <section class="container-fluid footer_section">
+          <p>
+            2023 .e-Vote : Your Voice Matters
+          </p>
+        </section>
+
+    <script src="js/Otp.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>.e-Vote: Your Voice Matters</title>
+    <!-- Font Awesome CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="shortcut icon" type="x-icon" href="img/logo.png">
+    <!-- Google Font -->
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/voterDashboard.css" />
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+  </head>
+  <body>
+    <!-- header section -->
+    <header class="header_section">
+        <a class="navbar-brand" href="voterDashboard">
+            <span>
+            .e-Vote 
+            </span>
+        </a>
+      </header>
+    <!-- /header section -->
+    <section>
+      <div class="row">
+        <h2 class="section-heading">Voter Services</h2>
+      </div>
+      <div class="row">
+        <div class="column">
+          <div class="card">
+            <div class="icon-wrapper">
+              <!-- <i class="fa-solid fa-check-to-slot"></i> -->
+              <i class="fa-solid fa-book-open-reader"></i>
+            </div>
+           <a href="/stepsToVote"> <h3>Steps to Vote</h3></a>
+            <p>
+              
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="icon-wrapper">
+              <!-- <i class="fa-solid fa-school-circle-check"></i> -->
+              <i class="fa-solid fa-house-user"></i>
+            </div>
+            <a href="/firstStep"><h3>Voting Area</h3></a>
+            <p>
+              
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="icon-wrapper">
+              <!-- <i class="fa-solid fa-ballot-check"></i> -->
+              <!-- <i class="fa-solid fa-memo-circle-check"></i> -->
+              <i class="fa-solid fa-rectangle-list"></i>
+            </div>
+            <a href="/ballot"><h3>What's on the ballot</h3></a>
+            <p>
+              
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <a href="/myProfile"><h3>My Profile</h3></a>
+            <p>
+              
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <a href="/votingresults"><h3>Election Results</h3></a>
+            <p>
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="icon-wrapper">
+              <i class="fa-sharp fa-solid fa-landmark"></i>
+            </div>
+           <a href="/democracy"> <h3>Indian Democracy</h3></a>
+            <p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <% if (msg == "Voting phase not yet started, we'll notify you when it begins!") { %>
+      <div id="myModal" class="modal1" >
+        <div class="modal-content">
+          <a href="/voterDashboard"><span class="close1" id="close">&times;</span></a>
+          <p class="msg"><%= msg %><br><br>
+            <a href="/voterDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+        </div>
+      </div>
+      <% }else if (msg == "Vote Casted Securely!") { %>
+        <div id="myModal" class="modal1" >
+          <div class="modal-content">
+            <a href="/voterDashboard"><span class="close1" id="close">&times;</span></a>
+            <p class="msg"><%= msg %><br><br>
+              <a href="/voterDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+          </div>
+        </div>
+        <% }else if (msg == "Your vote is already casted!") { %>
+          <div id="myModal" class="modal1" >
+            <div class="modal-content">
+              <a href="/voterDashboard"><span class="close1" id="close">&times;</span></a>
+              <p class="msg"><%= msg %><br><br>
+                <a href="/voterDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+            </div>
+          </div>
+      <% }else if (msg == "Votings has been Ended!") { %>
+        <div id="myModal" class="modal1" >
+          <div class="modal-content">
+            <a href="/voterDashboard"><span class="close1" id="close">&times;</span></a>
+            <p class="msg"><%= msg %><br><br>
+              <a href="/voterDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+          </div>
+        </div>
+        <% }else if (msg == "Election Results are yet to be displayed!") { %>
+          <div id="myModal" class="modal1" >
+            <div class="modal-content">
+              <a href="/voterDashboard"><span class="close1" id="close">&times;</span></a>
+              <p class="msg"><%= msg %><br><br>
+                <a href="/voterDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+            </div>
+          </div>
+      <% } else {%>
+        <div id="myModal" class="modal" >
+           <div class="modal-content">
+             <span class="close" id="close">&times;</span>
+             <p class="msg">Record inserted successfully!<br><br>
+             <a href="/voterDashboard"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+            <button id="ok" name="ok" onclick="location.href='partyDashboard'">OK</button> 
+           </div>
+         </div>
+         <% } %>
+  </body>
+  <script src="js/voterDashboard.js"></script>
+</html>

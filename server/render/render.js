@@ -1,0 +1,184 @@
+// this file is used to call the routes of the application and reduce the line of code from server.js
+const express=require('express')
+const app = express();
+
+// app.use('/routes', express.static(path.resolve(__dirname, "server/routes")))
+const routes = require('../routes/routes')
+const controller = require('../controller/controller')
+const render = {};
+
+render.homePage = function(req,res){
+    routes.homePage(req,res);
+}
+render.sepLogin=function(req,res){
+    routes.sepLogin(req,res);
+}
+render.sepRegistration=function(req,res){
+    routes.sepRegistration(req,res);
+}
+render.VoterReg2=function(req,res){
+    routes.VoterReg2(req,res);
+}
+render.dash=function(req,res){
+    routes.dash(req,res);
+}
+render.Partylogin=function(req,res){
+    routes.Partylogin(req,res);
+}
+render.Adminlogin=function(req,res){
+    routes.Adminlogin(req,res);
+}
+render.Partyreg=function(req,res){
+    routes.Partyreg(req,res);
+}
+render.Contactus=function(req,res){
+    controller.Contactus(req,res);
+}
+render.voterreg1=function(req,res){
+    routes.voterreg1(req,res);
+}
+render.sendOtp=function(req,res){
+    controller.sendOtp(req,res);
+}
+render.ValidateOtp=function(req,res){
+    controller.ValidateOtp(req,res);
+}
+render.Registration=function(req,res){
+    controller.Registration(req,res);
+}
+render.login=function(req,res){
+    controller.login(req,res);
+}
+render.VoterLogin=function(req,res){
+    routes.VoterLogin(req,res);
+}
+render.partyReg=function(req,res){
+    controller.partyReg(req,res);
+}
+render.partyLogin=function(req,res){
+    controller.partyLogin(req,res);
+}
+render.AdminLogin=function(req,res){
+    controller.AdminLogin(req,res);
+}
+render.otp=function(req,res){
+    routes.otp(req,res);
+}
+render.voterDashboard=function(req,res){
+    routes.voterDashboard(req,res);
+}
+render.partyDashboard=function(req,res){
+    routes.partyDashboard(req,res);
+}
+render.adminDashboard=function(req,res){
+    routes.adminDashboard(req,res);
+}
+render.forgot_VoterId=function(req,res){
+    routes.forgot_VoterId(req,res);
+}
+render.forgot_VoterId2=function(req,res){
+    routes.forgot_VoterId2(req,res);
+}
+render.voterId=function(req,res){
+    controller.voterId(req,res);
+}
+render.voterId2=function(req,res){
+    controller.voterId2(req,res);
+}
+render.Registration1=function(req,res){
+    controller.Registration1(req,res);
+}
+render.thirdAuth=function(req,res){
+    controller.thirdAuth(req,res);
+}
+render.Authetication1 = function(req,res){
+    routes.Authetication1(req,res);
+}
+render.firstStep=function(req,res){
+    routes.firstStep(req,res);
+}
+render.firstAuth=function(req,res){
+    controller.firstAuth(req,res);
+}
+render.secondAuth=function(req,res){
+    controller.secondAuth(req,res);
+}
+render.thirdStep=function(req,res){
+    routes.thirdStep(req,res);
+}
+render.ballot=function(req,res){
+    routes.ballot(req,res);
+}
+render.democracy=function(req,res){
+    routes.democracy(req,res);
+}
+render.stepsToVote=function(req,res){
+    routes.stepsToVote(req,res);
+}
+render.myProfile=function(req,res){
+    routes.myProfile(req,res);
+}
+render.editProfile=function(req,res){
+    routes.editProfile(req,res);
+}
+render.updateProfile=function(req,res){
+    controller.updateProfile(req,res);
+}
+render.myParty=function(req,res){
+    routes.party_myProfile(req,res);
+}
+render.party_editProfile=function(req,res){
+    routes.party_editProfile(req,res);
+}
+render.update_partyProfile=function(req,res){
+    controller.update_partyProfile(req,res);
+}
+render.party_requests=function(req,res){
+    routes.party_requests(req,res);
+}
+render.party_reg_request=function(req,res){
+    controller.party_reg_request(req,res);
+}
+render.accepted_partys=function(req,res){
+    routes.accepted_partys(req,res);
+}
+render.votingBallot=function(req,res){
+    routes.votingBallot(req,res);
+}
+render.ActualVote=function(req,res){
+    controller.ActualVote(req,res);
+}
+render.nominateCandidate=function(req,res){
+    routes.nominateCandidate(req,res);
+}
+render.candidateReg = function(req,res){
+    controller.candidateReg(req,res);
+}
+render.candidate_request = function(req,res){
+    routes.candidate_request(req,res);
+}
+render.candidate_reg_request=function(req,res){
+    controller.candidate_reg_request(req,res);
+}
+render.accepted_nominations=function(req,res){
+    routes.accepted_nominations(req,res);
+}
+render.electionphase=function(req,res){
+    routes.electionphase(req,res);
+}
+render.Electionphase=function(req,res){
+    controller.Electionphase(req,res);
+}
+render.electionresults=function(req,res){
+    routes.electionresults(req,res);
+}
+render.publishresults=function(req,res){
+    controller.publishresults(req,res);
+}
+render.votingresults=function(req,res){
+    routes.votingresults(req,res);
+}
+render.votingResults1=function(req,res){
+    routes.votingResults1(req,res);
+}
+module.exports = render;

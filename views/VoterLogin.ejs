@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="css/VoterLogin.css">
+    <link rel="shortcut icon" type="x-icon" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+
+    <!-- font style -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- fontawsome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <title>.e-Vote : Your Voice Matters</title> 
+</head>
+<body>
+    <header class="header_section">
+        <a class="navbar-brand" href="VoterLogin.ejs">
+            <span>
+            .e-Vote 
+            </span>
+        </a>
+      </header>
+      <!-- end header section -->
+    <div class="head-container">
+        <label class="reg">Login</label>
+        <form action="/Login" method="post" id="lg">
+            <div class="form first">
+                <div class="details personal">
+                    <!-- <span class="title">Personal Details</span> -->
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Voter ID</label>
+                            <input type="text" placeholder="Enter your Voter ID"  id="voterId" name="voterId">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Password</label>
+                            <input type="password" placeholder="Enter Password"  id="pwd" name="pwd">
+                            <span id="password-icon" class="fa fa-eye"></span>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <small class="small">Error message</small>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="sumbit" type="button" onclick="submitForm()">
+                    <span class="btnText">Login</span>
+                    <i class="uil uil-navigator"></i>
+                </button>
+                <a href="/forgot_VoterId" class="forgot">Forgot VoterId..?</a>
+            </div>
+
+
+        </form>
+    </div>
+    <!-- <% if (msg != null) { %>
+      <div id="myModal" class="modal1" >
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p class="msg"><%= msg %><br><br>
+            <a href="/"><input type="button" value="OK" id="ok" name="ok"></a></p>
+        </div>
+      </div>
+      <% } else {%>
+        <div id="myModal" class="modal" >
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p class="msg"><br><br>
+            <a href="/"><input type="button" value="OK" id="ok" name="ok"></a></p>
+          </div>
+        </div>
+        <% } %> -->
+
+        <% if (msg == 'Login Successful') { %>
+          <div id="myModal" class="modal1" >
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close1" id="close">&times;</span>
+              <p class="msg"><%= msg %><br><br>
+                <a href="/voterDashboard"><input type="button" value="OK" class="ok" id="ok" name="ok"></a></p>
+            </div>
+          </div>
+          <% } else if (msg == 'Login Failed')  {%>
+            <div id="myModal" class="modal1" >
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close1" id="close">&times;</span>
+                <p class="msg"><%= msg %><br><br>
+                <a href="/VoterLogin"><input type="button" class="ok" value="OK" id="ok" name="ok"></a></p>
+                <!-- <button id="ok" name="ok" onclick="location.href='Partylogin'">OK</button> -->
+              </div>
+            </div>
+            <% } else {%>
+              <div id="myModal" class="modal" >
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close" id="close">&times;</span>
+                  <p class="msg"><br><br>
+                  <a href="/VoterLogin"><input type="button" value="OK" id="ok" name="ok"></a></p>
+                  <!-- <button id="ok" name="ok" onclick="location.href='Partylogin'">OK</button> -->
+                </div>
+              </div>
+              <% } %>
+
+
+    <div class="footer_bg">
+        <!-- info section -->
+        <section class="info_section layout_padding2-bottom">
+          <div class="container">
+            <h3 class="">
+              .e-Vote
+            </h3>
+          </div>
+          <div class="container info_content">
+    
+            <div>
+              <div class="row">
+                <div class="col-md-6 col-lg-4">
+                  <div class="d-flex">
+                    <h5>
+                      Useful Link
+                    </h5>
+                  </div>
+                  <div class="d-flex ">
+                    <ul>
+                      <li>
+                        <a href="https://nsdl.co.in/value/e-Voting.php">
+                          e-Voting-NSDL
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://eci.gov.in/">
+                          Election Comission
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.evoting.nsdl.com/eVotingWeb/faqs.do">
+                          NSDL e-Voting system
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://right2vote.in/">
+                          Services
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.evotingindia.com/">
+                          CSDL e-Voting
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="d-flex">
+                    <h5>
+                      The Services
+                    </h5>
+                  </div>
+                  <div class="d-flex ">
+                    <ul>
+                      <li>
+                        <a href="https://nsdl.co.in/value/e-Voting.php">
+                          e-Voting
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://eci.gov.in/">
+                          Election system
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.evoting.nsdl.com/eVotingWeb/faqs.do">
+                          e-Voting system
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://right2vote.in/">
+                          Features
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.evotingindia.com/">
+                          e-voting india
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="d-flex">
+                    <h5>
+                      Contact Us
+                    </h5>
+                  </div>
+                  <div class="d-flex ">
+                    <ul>
+                      <li>
+                        <a href="#trouble">
+                          Contact Us
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                </div>
+             </div> 
+            </div>
+            
+    
+        </section>
+    
+        <!-- end info_section -->
+    
+        <!-- footer section -->
+        <section class="container-fluid footer_section">
+          <p>
+             2023 .e-Vote : Your Voice Matters
+          </p>
+        </section>
+
+    <script src="js/VoterLogin.js"></script>
+</body>
+</html>
