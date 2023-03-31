@@ -1,0 +1,3 @@
+build:
+  memory: 1024
+  swap: 1024
